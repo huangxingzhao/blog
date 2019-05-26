@@ -1,4 +1,7 @@
 
+var $text = $(new Showdown.converter().makeHtml( '*foo*' ) );
+console.log( $text.html() );
+
 
 #### 工作日计划时间（模糊，过渡版早期）
 | time | action | important |
