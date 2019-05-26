@@ -1,6 +1,8 @@
 
-var $text = $(new Showdown.converter().makeHtml( '*foo*' ) );
-console.log( $text.html() );
+html = marked.inlineLexer(markdown, [], options);
+
+//example
+marked.inlineLexer('*foo*', []) // will output '<em>foo</em>'
 
 
 #### 工作日计划时间（模糊，过渡版早期）
