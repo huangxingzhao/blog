@@ -1,0 +1,28 @@
+import random, os
+
+__pwdFileSize__ = 50000;
+numbers = [i for i in range(10)]
+leters = [chr(i) for i in range(97, 123)]
+leterUpcase = [chr(i) for i in range(65, 91)]
+# 26个字母大小写和数字0-9
+codes = numbers + leters + leterUpcase + numbers + numbers + numbers
+
+
+def getPasswordRandom(codeMap):
+    password = ''
+    for i in range(8):
+        password += str(codeMap[random.randint(0, len(codeMap)-1)])
+    return password
+
+
+baseDir = os.getcwd()
+fileName = os.path.join(baseDir, 'password.txt')
+psFile = open(fileName, 'w')
+for i in range(__pwdFileSize__):
+    psFile.write(getPasswordRandom(numbers) + '\n')
+psFile.close()
+
+# 使用集合内元素找出所有X位密码组合
+password = getPasswordRandom(codes)
+
+print(password)
